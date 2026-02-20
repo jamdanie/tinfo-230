@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alpine &amp; Views | Washington Hikes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="beginner.html">Coastal</a></li>
+        <li><a href="alpine.html" aria-current="page">Alpine &amp; Views</a></li>
+        <li><a href="waterfalls.html">Waterfalls</a></li>
+        <li><a href="seasons.html">Seasonal Picks</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-text">
+      <h1>Alpine &amp; Views</h1>
+      <p>Ridges, lakes, and big mountain payoffs.</p>
+      <p><a class="cta" href="#main">Plan smart</a></p>
+    </div>
+  </header>
+
+  <main id="main">
+    <h2>Alpine Hiking Basics</h2>
+    <p>
+      Alpine hikes are where Washington really shows off—sharp ridgelines, turquoise lakes, and wide-open views.
+      They often mean more elevation and quickly changing weather, so plan for extra time and layers.
+    </p>
+
+    <section class="section-card">
+      <h3>Plan smart</h3>
+      <p>Start early, pack water, and expect cooler temps at the top even when it’s warm at the trailhead.</p>
+    </section>
+
+    <section class="section-card">
+      <h3>Weather awareness</h3>
+      <p>Conditions can shift fast. Bring a warm layer and check the forecast before you go.</p>
+    </section>
+
+    <section class="section-card">
+      <h3>Leave No Trace</h3>
+      <p>Stay on trail and protect fragile alpine plants—they take a long time to grow back.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> James Daniels</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

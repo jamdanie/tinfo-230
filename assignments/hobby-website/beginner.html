@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coastal | Washington Hikes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="beginner.html" aria-current="page">Coastal</a></li>
+        <li><a href="alpine.html">Alpine &amp; Views</a></li>
+        <li><a href="waterfalls.html">Waterfalls</a></li>
+        <li><a href="seasons.html">Seasonal Picks</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-text">
+      <h1>Coastal</h1>
+      <p>Beach hikes, sea stacks, and forest-to-ocean trails.</p>
+      <p><a class="cta" href="#main">See tips</a></p>
+    </div>
+  </header>
+
+  <main id="main">
+    <h2>Coastal Trails</h2>
+    <p>
+      Coastal hikes are perfect when you want dramatic scenery without committing to big elevation gain.
+      Expect mud, wind, and changing tides—bring a layer, check conditions, and enjoy the views.
+    </p>
+
+    <section class="section-card">
+      <h3>What to bring</h3>
+      <p>Rain shell, traction if it’s slick, and a small dry bag to keep essentials safe.</p>
+    </section>
+
+    <section class="section-card">
+      <h3>Quick safety note</h3>
+      <p>Some beaches require timing around the tide—look up tide tables if your route passes headlands.</p>
+    </section>
+
+    <section class="section-card">
+      <h3>Trail etiquette</h3>
+      <p>Stay on durable surfaces, pack out trash, and respect closures to protect wildlife and dunes.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> James Daniels</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

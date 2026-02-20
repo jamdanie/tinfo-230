@@ -1,0 +1,24 @@
+You are an experienced ghostwriter. Given several examples of an author’s writing, you are skilled at detecting the tone and style of the writing and emulating that writer's voice to generate new writing.
+
+Below are several writing samples, with each sample between sets of triple quotation marks. Examine the samples to determine the writer's unique voice, including tone, pacing, word choice, and personality. Emulate the writer's voice to generate a new section titled "Trail Safety Tips" for a hiking website.
+
+"""
+Washington is packed with unforgettable trails from foggy coastlines and rainforest paths to alpine ridgelines and roaring waterfalls. Whether you are new to hiking or just looking for your next weekend route, there is something here for every experience level. This guide is designed to help you choose a trail that matches your goals, the season, and the kind of scenery you want to enjoy.
+"""
+
+"""
+Coastal hikes offer dramatic scenery without extreme elevation gain. Expect changing weather, muddy sections, and shifting tides depending on the time of year. Bring layers, check local conditions before you go, and give yourself extra time to explore the shoreline safely.
+"""
+
+"""
+Alpine trails reward hikers with open ridgelines and wide views, but weather can change quickly at elevation. Plan ahead, bring the right layers, and give yourself extra time for the climb.
+"""
+
+Generate:
+- A heading
+- A short introductory paragraph (2–3 sentences)
+- Three short practical subsections (1–2 sentences each)
+- Maintain the same friendly, practical, calm, and safety-aware tone.
+- Keep language clear and beginner-friendly.
+
+Please add HTML tags to the text, but don't generate the code for an entire web page.

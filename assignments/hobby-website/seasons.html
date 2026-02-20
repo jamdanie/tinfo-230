@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seasonal Picks | Washington Hikes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="beginner.html">Coastal</a></li>
+        <li><a href="alpine.html">Alpine &amp; Views</a></li>
+        <li><a href="waterfalls.html">Waterfalls</a></li>
+        <li><a href="seasons.html" aria-current="page">Seasonal Picks</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-text">
+      <h1>Seasonal Picks</h1>
+      <p>What to hike when, across Washington.</p>
+      <p><a class="cta" href="#main">See seasons</a></p>
+    </div>
+  </header>
+
+  <main id="main">
+    <h2>Season-by-Season</h2>
+    <p>
+      Washington hiking changes a lot through the year. Use the season to guide your trail choice—wildflowers in spring,
+      alpine in summer, color in fall, and lower-elevation trails or snow adventures in winter.
+    </p>
+
+    <section class="section-card">
+      <h3>Spring</h3>
+      <p>Lower-elevation trails, waterfalls, and early wildflowers while higher routes melt out.</p>
+    </section>
+
+    <section class="section-card">
+      <h3>Summer</h3>
+      <p>Best time for alpine routes—start early to avoid heat, crowds, and afternoon storms.</p>
+    </section>
+
+    <section class="section-card">
+      <h3>Fall</h3>
+      <p>Crisp weather and changing colors—shorter daylight means bring a headlamp.</p>
+    </section>
+
+    <section class="section-card">
+      <h3>Winter</h3>
+      <p>Try coastal/lowland routes or snow adventures; check conditions and plan conservatively.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> James Daniels</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

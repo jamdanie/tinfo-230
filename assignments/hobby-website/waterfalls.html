@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Waterfalls | Washington Hikes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="beginner.html">Coastal</a></li>
+        <li><a href="alpine.html">Alpine &amp; Views</a></li>
+        <li><a href="waterfalls.html" aria-current="page">Waterfalls</a></li>
+        <li><a href="seasons.html">Seasonal Picks</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-text">
+      <h1>Waterfalls</h1>
+      <p>Misty overlooks and roaring trail rewards.</p>
+      <p><a class="cta" href="#main">Safety first</a></p>
+    </div>
+  </header>
+
+  <main id="main">
+    <h2>Waterfall Hikes</h2>
+    <p>
+      Waterfall hikes are great year-round, but trails can be slick—especially near spray zones and shaded sections.
+      Bring traction when it’s cold and take your time on wet rocks and roots.
+    </p>
+
+    <section class="section-card">
+      <h3>Photo tips</h3>
+      <p>Try an early start for fewer crowds and softer light—plus more parking at popular trailheads.</p>
+    </section>
+
+    <section class="section-card">
+      <h3>Safety reminder</h3>
+      <p>Stay behind barriers and avoid climbing on rocks near the falls—slips happen fast.</p>
+    </section>
+
+    <section class="section-card">
+      <h3>Trail conditions</h3>
+      <p>If the route is muddy or icy, slow down and consider turning around—waterfall areas can be deceptively hazardous.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> James Daniels</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

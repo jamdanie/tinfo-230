@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Washington Hikes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="beginner.html">Coastal</a></li>
+        <li><a href="alpine.html">Alpine &amp; Views</a></li>
+        <li><a href="waterfalls.html">Waterfalls</a></li>
+        <li><a href="seasons.html">Seasonal Picks</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-text">
+      <h1>Washington Hikes</h1>
+      <p>Mountains Please. Best hikes in Washington State.</p>
+      <p><a class="cta" href="#main">Find a hike</a></p>
+    </div>
+  </header>
+
+  <main id="main">
+    <h2>Welcome</h2>
+    <p>
+      Washington is packed with unforgettable trails—from foggy coastlines and rainforest paths to alpine ridgelines and roaring waterfalls.
+      This site is a quick, beginner-friendly guide to help you pick a hike that matches your vibe, the season, and your experience level.
+      Explore the sections below to find your next favorite trail day.
+    </p>
+
+    <div class="card-grid">
+      <section class="section-card">
+        <h3>Coastal</h3>
+        <p>Ocean air, driftwood beaches, and trails where the forest meets the Pacific.</p>
+        <a href="beginner.html">Go to Coastal hikes</a>
+      </section>
+
+      <section class="section-card">
+        <h3>Alpine &amp; Views</h3>
+        <p>High-elevation trails with big payoffs—lakes, ridges, and panoramic mountain views.</p>
+        <a href="alpine.html">Go to Alpine &amp; Views</a>
+      </section>
+
+      <section class="section-card">
+        <h3>Waterfalls</h3>
+        <p>Short adventures and longer climbs that end with thundering falls and misty overlooks.</p>
+        <a href="waterfalls.html">Go to Waterfalls</a>
+      </section>
+
+      <section class="section-card">
+        <h3>Seasonal Picks</h3>
+        <p>What to hike when—spring wildflowers, summer alpine, fall colors, and winter options.</p>
+        <a href="seasons.html">Go to Seasonal Picks</a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> James Daniels</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
