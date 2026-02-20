@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--
+  This is a complete, single-file website (HTML + CSS + JavaScript).
+  It creates a Random Pun Generator that stores 50 puns and picks one at random:
+  - once when the page loads (for each visitor)
+  - again whenever the user clicks the "Generate Pun" button
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /> <!-- Tells the browser to use UTF-8 text encoding (supports most characters) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Makes the layout responsive on phones/tablets -->
+  <title>Random Pun Generator</title> <!-- The text shown in the browser tab -->
+
+  <style>
+    /* Basic page styling (CSS lives inside the same HTML file) */
+
+    :root { /* Defines reusable CSS variables */
+      --bg: #0b1220; /* Background color */
+      --card: #121a2b; /* Card color */
+      --text: #e9eefc; /* Main text color */
+      --muted: #a7b3d6; /* Softer text color */
+      --accent: #7aa2ff; /* Accent color for button focus/hover */
+      --border: rgba(255, 255, 255, 0.10); /* Light border color */
+      --shadow: rgba(0, 0, 0, 0.35); /* Shadow color */
+    }
+
+    * { /* Applies to all elements */
+      box-sizing: border-box; /* Includes padding/border in width calculations (helps layout) */
+    }
+
+    body { /* Styles the whole page */
+      margin: 0; /* Removes default browser margins */
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; /* Clean default font stack */
+      background: radial-gradient(1200px 800px at 20% 10%, #172448, var(--bg)); /* Nice gradient background */
+      color: var(--text); /* Default text color */
+      min-height: 100vh; /* Makes the body at least the full height of the screen */
+      display: grid; /* Uses CSS grid */
+      place-items: center; /* Centers content horizontally and vertically */
+      padding: 24px; /* Adds breathing room around the page */
+    }
+
+    .container { /* Outer wrapper */
+      width: 100%; /* Take full width available */
+      max-width: 760px; /* Limit width so it looks good on big screens */
+    }
+
+    .card { /* Main card where pun appears */
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); /* Subtle card gradient */
+      border: 1px solid var(--border); /* Thin border */
+      border-radius: 18px; /* Rounded corners */
+      box-shadow: 0 18px 50px var(--shadow); /* Drop shadow */
+      padding: 26px; /* Inner spacing */
+      backdrop-filter: blur(10px); /* Glassy blur (supported browsers) */
+    }
+
+    h1 { /* Title styling */
+      margin: 0 0 10px 0; /* Space below title */
+      font-size: 1.8rem; /* Title size */
+      letter-spacing: 0.2px; /* Slight letter spacing */
+    }
+
+    p.subtitle { /* Subtitle text styling */
+      margin: 0 0 22px 0; /* Space below subtitle */
+      color: var(--muted); /* Muted text color */
+      line-height: 1.5; /* Readable line spacing */
+    }
+
+    .pun-box { /* Area where the pun text is displayed */
+      border: 1px solid var(--border); /* Light border around the pun area */
+      border-radius: 14px; /* Rounded corners */
+      padding: 18px; /* Inner spacing */
+      background: rgba(0, 0, 0, 0.18); /* Slight dark fill */
+      min-height: 110px; /* Ensures box doesn't jump too much when pun changes */
+      display: grid; /* Grid for easy centering */
+      align-items: center; /* Center pun vertically */
+    }
+
+    .pun-text { /* The pun itself */
+      font-size: 1.25rem; /* Pun font size */
+      line-height: 1.6; /* Readability */
+      margin: 0; /* Remove default paragraph margin */
+      word-wrap: break-word; /* Prevent overflow if a long pun appears */
+    }
+
+    .controls { /* Button row */
+      display: flex; /* Horizontal layout */
+      gap: 12px; /* Space between items */
+      margin-top: 18px; /* Space above controls */
+      align-items: center; /* Align items vertically */
+      flex-wrap: wrap; /* Wrap on small screens */
+    }
+
+    button { /* Button base styling */
+      appearance: none; /* Remove default browser styles */
+      border: 1px solid var(--border); /* Border */
+      background: rgba(122, 162, 255, 0.16); /* Subtle accent background */
+      color: var(--text); /* Button text color */
+      padding: 12px 16px; /* Button size */
+      border-radius: 12px; /* Rounded corners */
+      cursor: pointer; /* Hand cursor */
+      font-weight: 650; /* Slightly bold */
+      transition: transform 0.06s ease, background 0.2s ease, border-color 0.2s ease; /* Smooth interactions */
+    }
+
+    button:hover { /* Hover effect */
+      background: rgba(122, 162, 255, 0.25); /* Brighter on hover */
+      border-color: rgba(122, 162, 255, 0.55); /* More visible border */
+    }
+
+    button:active { /* Click (pressed) effect */
+      transform: translateY(1px); /* Slight press movement */
+    }
+
+    button:focus-visible { /* Accessibility: keyboard focus ring */
+      outline: 3px solid rgba(122, 162, 255, 0.55); /* Visible outline */
+      outline-offset: 2px; /* Space between outline and button */
+    }
+
+    .meta { /* Small footer / helper text */
+      margin-top: 14px; /* Space above */
+      color: var(--muted); /* Muted color */
+      font-size: 0.95rem; /* Smaller text */
+    }
+
+    .meta code { /* Styling inline code */
+      color: #d9e4ff; /* Slightly brighter */
+      background: rgba(255, 255, 255, 0.07); /* Light background */
+      padding: 2px 6px; /* Small padding */
+      border-radius: 8px; /* Rounded corners */
+      border: 1px solid var(--border); /* Border */
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container"> <!-- Main content wrapper -->
+    <section class="card" aria-labelledby="title"> <!-- Card section with accessible label relationship -->
+      <h1 id="title">Random Pun Generator</h1> <!-- Page headline -->
+      <p class="subtitle">
+        A tiny site with <strong>50 stored puns</strong>. You’ll get one automatically on load,
+        and you can click the button for another.
+      </p> <!-- Short explanation -->
+
+      <div class="pun-box" role="status" aria-live="polite"> <!-- Live region for screen readers when text changes -->
+        <p id="punText" class="pun-text">Loading your pun…</p> <!-- Placeholder text before JS runs -->
+      </div>
+
+      <div class="controls"> <!-- Row for controls -->
+        <button id="newPunBtn" type="button">Generate Pun</button> <!-- Single button requested -->
+      </div>
+
+      <div class="meta">
+        Tip: You can also press <code>Enter</code> or <code>Space</code> when the button is focused.
+      </div> <!-- Small helper text -->
+    </section>
+  </main>
+
+  <script>
+    // -----------------------------
+    // 1) Store 50 puns as page data
+    // -----------------------------
+
+    const PUNS = [ // This array holds all 50 puns (the site's "data")
+      "I tried to catch fog yesterday… Mist.",
+      "I used to be a baker, but I couldn’t make enough dough.",
+      "I’m reading a book about anti-gravity. It’s impossible to put down.",
+      "Did you hear about the guy who invented Lifesavers? He made a mint.",
+      "I don’t trust stairs. They’re always up to something.",
+      "I used to hate facial hair, but then it grew on me.",
+      "I’m on a seafood diet. I see food and I eat it.",
+      "I asked the librarian if the library had books on paranoia. She whispered, “They’re right behind you.”",
+      "I was wondering why the frisbee kept getting bigger… then it hit me.",
+      "I told my computer I needed a break, and it said: “No problem — I’ll go to sleep.”",
+      "I got fired from the calendar factory… I took too many days off.",
+      "A bicycle can’t stand on its own because it’s two-tired.",
+      "I tried writing with a broken pencil… pointless.",
+      "I used to play piano by ear, but now I use my hands.",
+      "I’m friends with all electricians — we have great current connections.",
+      "I would tell a chemistry joke, but I know I wouldn’t get a reaction.",
+      "I’m terrified of elevators, so I’m going to start taking steps to avoid them.",
+      "I have a fear of speed bumps… but I’m slowly getting over it.",
+      "I once got into a fight with a broken elevator… I lost on so many levels.",
+      "I wanted to be a doctor, but I didn’t have the patients.",
+      "The guy who stole my diary died… my thoughts are with his family.",
+      "I was going to tell a time-travel joke, but you didn’t like it.",
+      "I’m not a fan of spring cleaning… let’s be honest, I’m not into summer or fall either.",
+      "I used to be addicted to soap… but I’m clean now.",
+      "I told a joke about construction… but I’m still working on it.",
+      "I gave my friend a fridge for his birthday… I can’t wait to see his face light up when he opens it.",
+      "I’m reading a book about glue… I just can’t seem to put it down.",
+      "I named my dog “Five Miles” so I can tell people I walk Five Miles every day.",
+      "I bought shoes from a drug dealer… I don’t know what he laced them with, but I’ve been tripping all day.",
+      "I asked my dog what’s two minus two. He said nothing.",
+      "I told my suitcase there will be no vacation this year… now I’m dealing with emotional baggage.",
+      "I’m so good at sleeping… I can do it with my eyes closed.",
+      "I tried to organize a hide-and-seek tournament… but it was a complete failure. Good players are hard to find.",
+      "I used to be a banker, but I lost interest.",
+      "I don’t like jokes about the wind… they blow.",
+      "I told my plants a joke… now they’re rooted in laughter.",
+      "I’m starting a band called “1023MB”… we haven’t gotten a gig yet.",
+      "The future, the present, and the past walked into a bar… it was tense.",
+      "I made a pencil with two erasers… it was pointless.",
+      "I’d tell you a joke about pizza, but it’s a little cheesy.",
+      "I tried to make a belt out of watches… it was a waist of time.",
+      "I once got a job at a bakery… I kneaded it.",
+      "I’m writing a book about hurricanes and tornadoes… it’s a real whirlwind of a story.",
+      "I got a job as a human cannonball… I was fired.",
+      "I kept wondering why the ball was getting larger… then it hit me (again).",
+      "I was going to make a joke about paper… but it was tear-able.",
+      "I tried to take a selfie with some wheat… it was a grainy picture.",
+      "I told a joke about a roof… it went over everyone’s head.",
+      "I entered 10 puns in a pun contest… hoping one would win, but no pun in ten did.",
+      "I told my coffee a joke… it perked right up."
+    ];
+
+    // -----------------------------------------
+    // 2) Get references to important HTML nodes
+    // -----------------------------------------
+
+    const punTextEl = document.getElementById("punText"); // Where we display the pun text
+    const newPunBtn = document.getElementById("newPunBtn"); // The "Generate Pun" button
+
+    // ---------------------------------------------------------
+    // 3) Helper: pick a random pun (optionally avoid repeats)
+    // ---------------------------------------------------------
+
+    let lastIndex = -1; // Track the last pun index shown to reduce immediate repeats
+
+    function getRandomPunIndex() { // Function to return a random valid array index
+      // Math.random() gives a value from 0 (inclusive) to 1 (exclusive)
+      // Multiply by PUNS.length to scale it to 0..49.999...
+      // Math.floor() converts it to an integer 0..49
+      return Math.floor(Math.random() * PUNS.length);
+    }
+
+    function showRandomPun() { // Updates the UI with a new random pun
+      let idx = getRandomPunIndex(); // Pick a random index
+
+      // If we picked the same pun as last time, try again (simple repeat-avoid)
+      // This loop is safe because with 50 puns it will almost always find a new one quickly.
+      while (idx === lastIndex) {
+        idx = getRandomPunIndex(); // Pick again if it matches the last one
+      }
+
+      lastIndex = idx; // Save this index so we can avoid showing it immediately again
+      punTextEl.textContent = PUNS[idx]; // Display the pun in the page
+    }
+
+    // -----------------------------------------------------
+    // 4) Show a random pun for each visitor on page load
+    // -----------------------------------------------------
+
+    showRandomPun(); // Runs as soon as the script loads (page load behavior)
+
+    // -----------------------------------------------------
+    // 5) Button: generate and display another random pun
+    // -----------------------------------------------------
+
+    newPunBtn.addEventListener("click", showRandomPun); // When button is clicked, show a new pun
+  </script>
+</body>
+</html>
