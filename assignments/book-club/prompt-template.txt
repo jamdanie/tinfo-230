@@ -1,0 +1,27 @@
+I want to build a web page for a book club. I don’t know how to code, so I need you to provide the code for me.
+
+First, write the HTML code for a web page that includes the following:
+ * A header element that includes an image named [logo filename], the title "[page title]", and the tagline "[page tagline]".
+ * A main element that contains three sections.
+ * The first section contains the second-level heading "Welcome!", followed by a paragraph that contains the text between the triple quotation marks: 
+"""
+[section text]
+"""
+ * A second section that begins with the second-level heading "What We're Reading".
+ * In the second section, include the image named [book cover image filename], followed by the text between the triple quotation marks, where each word or phrase before a colon is bold:
+"""
+Title: [title]
+Author: [author]
+Pages: [pages]
+Summary: [summary]
+"""
+ * A third section that begins with the second-level heading "Next Meetup".
+ * In the third section, include the text between the triple quotation marks, where each word or phrase before a colon is bold:
+"""
+Date: [date]
+Time: [time]
+Location: [location]
+Questions to ponder: [questions]
+"""
+ * A footer element that includes the text "Copyright" (spelled out, do not include the Copyright symbol), followed by the current year, followed by "[page title]". In a separate paragraph, the footer also includes [number] links to social media accounts: one for Facebook (username: [username]), Instagram (username: [username]), and X (username: [username]).
+
