@@ -1,0 +1,23 @@
+I want to build a personal homepage. I don't know how to code, so I need you to provide the code for me.
+
+First, write the HTML code for a simple web page that includes the following:
+* A header that includes the title "James Daniels" and the subtitle "Student • Builder • Always learning by doing."
+* A main section where the first paragraph contains the text between the triple quotation marks:
+"""Welcome to my personal homepage! This is a simple space where I’m practicing web design and sharing a little about who I am and what I’m working on. Thanks for stopping by!"""
+* The second-level heading "About Me" followed by a paragraph that contains the text between the triple quotation marks:
+"""I’m a full-time student focused on technology and problem-solving. I enjoy learning step-by-step and turning ideas into projects."""
+* The second-level heading "What I’m Working On" followed by a paragraph that contains the text between the triple quotation marks:
+"""Right now I’m practicing HTML and CSS, building small class projects, and improving my technical skills one assignment at a time."""
+* The second-level heading "Interests" followed by a paragraph that contains the text between the triple quotation marks:
+"""I enjoy tech, design, and anything that blends creativity with systems thinking. I also like working on structured study plans and hands-on learning."""
+* The second-level heading "Contact" followed by a paragraph that contains the text between the triple quotation marks:
+"""If you’d like to reach me later, I’ll add contact details here once I learn forms and links."""
+Second, in a separate file please write the CSS code for the following:
+* The header background color is dodgerblue with 20px padding all around. Center the title and subtitle.
+* The title font size is 48px with color whitesmoke.
+* The subtitle font size is 24px with color whitesmoke and formatted as italic.
+* The second-level heading font size is 32px with color dodgerblue.
+* The main section font size is 20px.
+* For the headings, use the Josefin Sans font from Google Fonts. For the rest of the text, use the Roboto Serif font from Google Fonts.
+* The page is centered.
+* The page is responsive with a maximum width of 800px.

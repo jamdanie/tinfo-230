@@ -1,0 +1,38 @@
+body {
+  font-family: 'Roboto Serif', serif;
+  max-width: 800px;
+  margin: auto;
+}
+
+header {
+  background-color: dodgerblue;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 48px;
+  color: whitesmoke;
+  margin: 0;              /* NEW */
+}
+
+header h2 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 24px;
+  color: whitesmoke;
+  font-style: italic;
+  margin: 10px 0 0 0;     /* NEW */
+}
+
+main {
+  font-size: 20px;
+  padding: 20px;          /* NEW (matches the “breathing room” look) */
+}
+
+main h2 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 32px;
+  color: dodgerblue;
+  margin-bottom: 6px;     /* NEW */
+}
