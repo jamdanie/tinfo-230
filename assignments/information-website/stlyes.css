@@ -1,0 +1,177 @@
+/* RidgeRelay - Chapter 6 assignment-safe stylesheet
+   - External CSS file (no inline styles)
+   - Multi-page site with consistent layout and navigation
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fbfbfb;
+  color: #1a1a1a;
+  font-family: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Skip link (accessibility polish) */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  padding: 0.5rem 0.75rem;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Header with subtle concept background */
+.site-header {
+  position: relative;
+  background: #ffffff;
+  border-bottom: 1px solid #dddddd;
+  overflow: hidden;
+}
+
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("concept_background.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08; /* keep your chosen value here */
+  pointer-events: none;
+}
+
+.site-header .container {
+  position: relative;
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-link {
+  display: inline-block;
+}
+
+.logo-link:hover {
+  opacity: 0.9;
+}
+
+.site-logo {
+  width: 95px;
+  height: auto;
+}
+
+.site-title {
+  margin: 0;
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 2rem;
+}
+
+.title-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.title-link:hover,
+.title-link:focus {
+  text-decoration: underline;
+}
+
+.site-tagline {
+  margin: 0.25rem 0 0;
+  font-size: 1.05rem;
+}
+
+/* Navigation */
+.site-nav {
+  background: #fafafa;
+  border-bottom: 1px solid #dddddd;
+}
+
+.site-nav a {
+  display: inline-block;
+  margin-right: 1rem;
+  padding: 0.75rem 0;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  text-decoration: underline;
+}
+
+.site-nav a[aria-current="page"] {
+  font-weight: 700;
+  text-decoration: underline;
+  border-bottom: 2px solid #1a1a1a;
+}
+
+/* Clear keyboard focus (strict-professor friendly) */
+a:focus,
+a:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 3px;
+}
+
+/* Main content */
+.site-main {
+  padding-top: 0.5rem;
+}
+
+.site-main h2,
+.site-main h3 {
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.25;
+}
+
+section {
+  margin-top: 1.5rem;
+}
+
+/* Cards */
+.card {
+  background: #ffffff;
+  border: 1px solid #e2e2e2;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.meta {
+  margin-top: -0.25rem;
+  font-size: 0.95rem;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid #dddddd;
+  margin-top: 2rem;
+  background: #ffffff;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+  padding: 1rem 0;
+}
